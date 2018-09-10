@@ -42,12 +42,12 @@ resources/firewalld.sh
 #resources/fail2ban.sh
 
 #restart services
-verbose "Restarting packages for final configuration"
-systemctl daemon-reload
-systemctl restart freeswitch
+#verbose "Restarting packages for final configuration"
+#systemctl daemon-reload
+#systemctl restart freeswitch
 #systemctl restart php-fpm
 #systemctl restart nginx
 #systemctl restart fail2ban
 
 #add the database schema, user and groups
-resources/finish.sh
+#resources/finish.sh
