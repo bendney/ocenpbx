@@ -36,7 +36,7 @@ resources/postgresql.sh
 resources/firewalld.sh
 
 #FreeSWITCH
-#resources/switch.sh
+resources/switch.sh
 
 #Fail2ban
 #resources/fail2ban.sh
