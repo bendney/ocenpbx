@@ -1,6 +1,6 @@
 #!/bin/sh
 
 #copy the conf directory
-mv /etc/freeswitch /etc/freeswitch.orig
-mkdir /etc/freeswitch
-cp -R /var/www/fusionpbx/resources/templates/conf/* /etc/freeswitch
+mv /usr/local/freeswitch/conf /usr/local/freeswitch/conf.orig
+mkdir /usr/local/freeswitch/conf
+cp -R switch/config/* /usr/local/freeswitch/conf

@@ -18,10 +18,10 @@ if [ .$switch_source = .true ]; then
 	switch/conf-copy.sh
 
 	#set the file permissions
-	switch/source-permissions.sh
+#	switch/source-permissions.sh
 
 	#systemd service
-	switch/source-systemd.sh
+#	switch/source-systemd.sh
 fi
 
 #install packages
