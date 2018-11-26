@@ -49,7 +49,7 @@ sudo -u postgres /usr/bin/psql -c "GRANT ALL PRIVILEGES ON DATABASE freeswitch t
 sudo -u postgres /usr/bin/psql -d freeswitch -c "CREATE TABLE IF NOT EXISTS userinfo(username varchar(16) NOT NULL, password varchar(16) NOT NULL, dtmf varchar(16), qualify varchar(16), grade varchar(16));"
 sudo -u postgres /usr/bin/psql -d freeswitch -c "CREATE TABLE conference(confnum varchar(16) NOT NULL, confname varchar(16) NOT NULL, confuserpin varchar(16), confadminpin varchar(16), mode varchar(16));"
 #ALTER USER fusionpbx WITH PASSWORD 'newpassword';
-cd $cwd
+cd $cwd 
 
 #send a message
 verbose "PostgreSQL installed"
