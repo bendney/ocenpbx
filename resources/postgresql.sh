@@ -11,7 +11,7 @@ cd "$(dirname "$0")"
 verbose "Installing PostgreSQL"
 
 #generate a random password
-password=$(dd if=/dev/urandom bs=1 count=20 2>/dev/null | base64)
+password=654321
 
 #included in the distribution
 yum -y update
@@ -25,7 +25,7 @@ verbose "Initalize PostgreSQL database"
 
 #allow loopback
 sed -i "/listen_addresses/i listen_addresses = '*' " /var/lib/pgsql/data/postgresql.conf
-sed -i 's/\(host  *all  *all  *0.0.0.0\/0  *\)ident/\1md5/' /var/lib/pgsql/data/pg_hba.conf
+sed -i 's/\(host  *all  *all  *127.0.0.1\/32  *\)ident/\1md5/' /var/lib/pgsql/data/pg_hba.conf
 sed -i 's/\(host  *all  *all  *::1\/128  *\)ident/\1md5/' /var/lib/pgsql/data/pg_hba.conf
 
 #systemd
