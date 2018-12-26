@@ -28,7 +28,7 @@ sed -i "/listen_addresses/i listen_addresses = '*' " /var/lib/pgsql/data/postgre
 sed -i 's/\(host  *all  *all  *127.0.0.1\/32  *\)ident/\1md5/' /var/lib/pgsql/data/pg_hba.conf
 sed -i 's/\(host  *all  *all  *::1\/128  *\)ident/\1md5/' /var/lib/pgsql/data/pg_hba.conf
 
-#systemd
+#systemd 
 systemctl daemon-reload
 systemctl restart postgresql
 
