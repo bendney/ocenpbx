@@ -1,6 +1,7 @@
 <configuration name="lcr.conf" description="LCR Configuration">
   <settings>
-    <param name="odbc-dsn" value="freeswitch-mysql:freeswitch:Fr33Sw1tch"/>
+    <!--<param name="odbc-dsn" value="freeswitch-mysql:freeswitch:Fr33Sw1tch"/>-->
+    <param name="odbc-dsn" value="pgsql://hostaddr=127.0.0.1 dbname=freeswitch user=freeswitch password='654321' options='-c client_min_messages=NOTICE' application_name='freeswitch'"/>
 <!--    <param name="odbc-dsn" value="freeswitch-pgsql:freeswitch:Fr33Sw1tch"/> -->
   </settings>
   <profiles>

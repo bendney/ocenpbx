@@ -1,6 +1,7 @@
 <configuration name="callcenter.conf" description="CallCenter">
   <settings>
     <!--<param name="odbc-dsn" value="dsn:user:pass"/>-->
+    <param name="odbc-dsn" value="pgsql://hostaddr=127.0.0.1 dbname=freeswitch user=freeswitch password='654321'"/>
     <!--<param name="dbname" value="/dev/shm/callcenter.db"/>-->
     <!--<param name="cc-instance-id" value="single_box"/>-->
   </settings>

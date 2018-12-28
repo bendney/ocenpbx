@@ -38,6 +38,7 @@
     <!-- This could be set to "passive" -->
     <param name="local-network-acl" value="localnet.auto"/>
     <param name="manage-presence" value="false"/>
+    <param name="odbc-dsn" value="pgsql://hostaddr=127.0.0.1 dbname=freeswitch user=freeswitch password='654321' options='-c client_min_messages=NOTICE' application_name='freeswitch'"/>
 
     <!-- used to share presence info across sofia profiles
          manage-presence needs to be set to passive on this profile

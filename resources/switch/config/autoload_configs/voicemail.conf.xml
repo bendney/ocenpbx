@@ -66,6 +66,7 @@
       </email>
       <!--<param name="storage-dir" value="$${storage_dir}"/>-->
       <!--<param name="odbc-dsn" value="dsn:user:pass"/>-->
+      <param name="odbc-dsn" value="pgsql://hostaddr=127.0.0.1 dbname=freeswitch user=freeswitch password='654321' options='-c client_min_messages=NOTICE' application_name='freeswitch'"/>
       <!--<param name="record-comment" value="Your Comment"/>-->
       <!--<param name="record-title" value="Your Title"/>-->
       <!--<param name="record-copyright" value="Your Copyright"/>-->

@@ -127,12 +127,19 @@
 	<action application="info"/>
       </condition>
 
+      <condition>
+        <action application="info"/>
+        <action application="db" data="insert/spymap/${caller_id_number}/${uuid}"/>
+        <action application="db" data="insert/last_dial/${caller_id_number}/${destination_number}"/>
+        <action application="db" data="insert/last_dial/global/${uuid}"/>
+      </condition>
+
       <condition field="${default_password}" expression="^1234$" break="never">
 	<action application="log" data="CRIT WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING "/>
 	<action application="log" data="CRIT Open $${conf_dir}/vars.xml and change the default_password."/>
 	<action application="log" data="CRIT Once changed type 'reloadxml' at the console."/>
 	<action application="log" data="CRIT WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING "/>
-	<action application="sleep" data="10000"/>
+	<!--<action application="sleep" data="10000"/>-->
       </condition>
       <!--
 	  This is an example of how to auto detect if telephone-event is missing and activate inband detection
@@ -197,13 +204,15 @@
 	<action application="playback" data="$${hold_music}"/>
       </condition>
     </extension>
-
+    
+    <!--
     <extension name="eavesdrop">
       <condition field="destination_number" expression="^88(\d{4})$|^\*0(.*)$">
 	<action application="answer"/>
 	<action application="eavesdrop" data="${hash(select/${domain_name}-spymap/$1$2)}"/>
       </condition>
     </extension>
+    -->
 
     <extension name="eavesdrop">
       <condition field="destination_number" expression="^779$">
@@ -213,6 +222,13 @@
 	<action application="set" data="eavesdrop_indicate_idle=tone_stream://%(250, 0, 920)"/>
 	<action application="eavesdrop" data="all"/>
       </condition>
+    </extension>
+
+    <extension name="eavesdrop">
+        <condition field="destination_number" expression="^88(.*)$|^\*0(.*)$">
+        <action application="answer"/>
+        <action application="eavesdrop" data="${db(select/spymap/$1$2)}"/>
+        </condition>
     </extension>
 
     <extension name="call_return">
