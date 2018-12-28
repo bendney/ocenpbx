@@ -14,7 +14,7 @@ verbose "Installing PostgreSQL"
 password=654321
 
 #included in the distribution
-#yum -y update
+yum -y update
 yum -y install postgresql-server postgresql-contrib postgresql
 
 #send a message
