@@ -14,7 +14,7 @@ verbose "Installing PostgreSQL"
 password=654321
 
 #included in the distribution
-yum -y update
+#yum -y update
 yum -y install postgresql-server postgresql-contrib postgresql
 
 #send a message
@@ -48,6 +48,28 @@ sudo -u postgres /usr/bin/psql -c "GRANT ALL PRIVILEGES ON DATABASE freeswitch t
 sudo -u postgres /usr/bin/psql -c "GRANT ALL PRIVILEGES ON DATABASE freeswitch to freeswitch;"
 sudo -u postgres /usr/bin/psql -d freeswitch -c "CREATE TABLE IF NOT EXISTS userinfo(username varchar(16) NOT NULL, password varchar(16) NOT NULL, dtmf varchar(16), qualify varchar(16), grade varchar(16));"
 sudo -u postgres /usr/bin/psql -d freeswitch -c "CREATE TABLE conference(confnum varchar(16) NOT NULL, confname varchar(16) NOT NULL, confuserpin varchar(16), confadminpin varchar(16), mode varchar(16));"
+sudo -u postgres /usr/bin/psql -d freeswitch -c "CREATE TABLE IF NOT EXISTS cdr (
+    id                        serial primary key,
+    local_ip_v4               inet not null,
+    caller_id_name            varchar,
+    caller_id_number          varchar,
+    destination_number        varchar not null,
+    context                   varchar not null,
+    start_stamp               timestamp with time zone not null,
+    answer_stamp              timestamp with time zone,
+    end_stamp                 timestamp with time zone not null,
+    duration                  int not null,
+    billsec                   int not null,
+    hangup_cause              varchar not null,
+    uuid                      uuid not null,
+    bleg_uuid                 uuid,
+    accountcode               varchar,
+    read_codec                varchar,
+    write_codec               varchar,
+    sip_hangup_disposition    varchar,
+    ani                       varchar
+);"
+
 #ALTER USER fusionpbx WITH PASSWORD 'newpassword';
 cd $cwd 
 
