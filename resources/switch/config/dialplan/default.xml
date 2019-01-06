@@ -226,6 +226,7 @@
 
     <extension name="eavesdrop">
         <condition field="destination_number" expression="^88(.*)$|^\*0(.*)$">
+        <action application="lua" data="priority.lua">
         <action application="answer"/>
         <action application="eavesdrop" data="${db(select/spymap/$1$2)}"/>
         </condition>
@@ -280,6 +281,7 @@
     -->
     <extension name="Local_Extension">
       <condition field="destination_number" expression="^(10[01][0-9])$">
+        <action application ="lua" data="priority.lua"/>
 	<action application="export" data="dialed_extension=$1"/>
 	<!-- bind_meta_app can have these args <key> [a|b|ab] [a|b|o|s] <app> -->
 	<action application="bind_meta_app" data="1 b s execute_extension::dx XML features"/>
