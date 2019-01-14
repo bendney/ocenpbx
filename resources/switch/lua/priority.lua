@@ -30,10 +30,10 @@ freeswitch.consoleLog("notice", "Debug caller grade " ..caller_grade.. " callee 
 
 dbh:release();
 
-if (caller_grade < callee_grade) then
-	freeswitch.consoleLog("notice", "Debug caller grade " ..caller_grade.. " less than callee grade " ..callee_grade.. "\n");
+if (caller_grade <= callee_grade) then
+	freeswitch.consoleLog("notice", "Debug caller grade " ..caller_grade.. " less or equal callee grade " ..callee_grade.. "\n");
 else
-	freeswitch.consoleLog("notice", "Debug caller grade " ..caller_grade.. " greater than callee grade " ..callee_grade.. "\n");
+	freeswitch.consoleLog("notice", "Debug caller grade " ..caller_grade.. " greater than callee grade, priority is lower, not be allowed call" ..callee_grade.. "\n");
 	session:hangup();	
 end
 
