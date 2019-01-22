@@ -361,7 +361,7 @@
     <!-- on outbound calls set the callid to match the uuid of the session -->
     <!--<param name="outbound-use-uuid-as-callid" value="true"/>-->
     <!-- set to false disable this feature -->
-    <!--<param name="rtp-autofix-timing" value="false"/>-->
+    <param name="rtp-autofix-timing" value="false"/>
 
     <!-- set this param to false if your gateway for some reason hates X- headers that it is supposed to ignore-->
     <!--<param name="pass-callee-id" value="false"/>-->
