@@ -25,6 +25,9 @@ yum -y install ntp htop epel-release vim openssl
 #Postgres
 resources/postgresql.sh
 
+#Prosody
+resources/prosody.sh
+
 #NGINX web server
 #resources/sslcert.sh
 #resources/nginx.sh
