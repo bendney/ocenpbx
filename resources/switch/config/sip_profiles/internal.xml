@@ -177,7 +177,7 @@
     <!-- Can be 'true' or 'contact' -->
     <!--<param name="multiple-registrations" value="contact"/>-->
     <!--set to 'greedy' if you want your codec list to take precedence -->
-    <param name="inbound-codec-negotiation" value="generous"/>
+    <param name="inbound-codec-negotiation" value="greedy"/>
     <!-- if you want to send any special bind params of your own -->
     <!--<param name="bind-params" value="transport=udp"/>-->
     <!--<param name="unregister-on-options-fail" value="true"/>-->
@@ -361,7 +361,7 @@
     <!-- on outbound calls set the callid to match the uuid of the session -->
     <!--<param name="outbound-use-uuid-as-callid" value="true"/>-->
     <!-- set to false disable this feature -->
-    <param name="rtp-autofix-timing" value="false"/>
+    <!--<param name="rtp-autofix-timing" value="false"/>-->
 
     <!-- set this param to false if your gateway for some reason hates X- headers that it is supposed to ignore-->
     <!--<param name="pass-callee-id" value="false"/>-->
